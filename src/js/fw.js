@@ -16,10 +16,11 @@ const levelTexts = {
     10: "PATIENCE",
     11: "GOING UP",
     12: "SAVE ON THE WAY",
-    13: "MIRRORED",
-    14: "JUMP BACK",
-    15: "TIMING",
-    16: "THE END"
+    13: "UP AND DOWN",
+    14: "MIRRORED",
+    15: "JUMP BACK",
+    16: "TIMING",
+    17: "THE END"
 };
 
 let assets = {};
@@ -64,7 +65,7 @@ export function loadAssets(cb) {
                         audio.loop = true;
                         audio.play().then(cb).catch(cb);
                     }
-                }, 100);
+                }, 16);
             }
         };
         i.src = v;
