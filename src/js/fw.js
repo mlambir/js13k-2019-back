@@ -29,7 +29,7 @@ export function loadAssets(cb) {
     let imgs = ["img/levels.png", "img/tiles.png", "img/bot.png", "img/entities.png", "img/font.png"];
     let _sounds = {
         jump: jsfxr([0, 0, 0.1, 0.4, 0.2, 0.3, 0, 0.1, 0, 0, 0, 0, 0, 0.47, 0, 0, 0, 0, 0.5, 0, 0, 0.2, 0, 0.5]),
-        fix: jsfxr([1, 0, 0.08, 0.4, 0.1, 0.5, 0, -0.64, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0.5]),
+        fix: jsfxr([3,0,0.1,0.4,0.15,0.45,0,-0.45,0,0,0,0,0,0,0,0,0,0,1,0,0,0.4,0,0.5]),
         save: jsfxr([0, 0, 0.06, 0.4, 0.5, 0.4, 0, 0.43, 0, 0, 0, 0, 0, 0.2, 0, 0.5, 0, 0, 1, 0, 0, 0, 0, 0.5]),
         death: jsfxr([0,0,0.3,0.4,0.3,0.4,0,-0.4,0,0,0,0,0,0.3,0,0.4,0,0,1,0,0,0,0,0.5]),
         win: jsfxr([0,0,0.09,0.,0.4,0.6,0,0,0,0,0,0.65,0.5,0,0,0,0,0,1,0,0,0,0,0.5])
@@ -62,8 +62,7 @@ export function loadAssets(cb) {
                         audio.src = URL.createObjectURL(new Blob([wave], {type: "audio/wav"}));
                         audio.volume = .5;
                         audio.loop = true;
-                        audio.play();
-                        cb()
+                        audio.play().then(cb).catch(cb);
                     }
                 }, 100);
             }
